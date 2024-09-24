@@ -1,16 +1,19 @@
 class Federate < Formula
   desc "A tool for merging and deploying microservices"
   homepage "https://github.com/funkygao/federate"
-  url "https://github.com/funkygao/federate/archive/refs/tags/v1.0.0.tar.gz"
-  version "1.0.0"
-  sha256 "8aace2457ec4ffa4f516ec827ea638298a7c953de05fd8a578822fa9209bb191"
+  url "https://github.com/funkygao/federate/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "8d75863d5883a70ac24929ee0ee387a1c15cb98979689815393bbe7ec447929c"
 
   depends_on "go" => :build
-  depends_on "make" => :build
 
   def install
-    system "make", "install"
-    bin.install "federate"
+    ENV["GOPATH"] = buildpath
+    path = buildpath/"src/github.com/funkygao/federate"
+    path.install Dir["*"]
+    cd path do
+      system "make", "install"
+    end
+    bin.install Dir["bin/*"]
   end
 
   test do
