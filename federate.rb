@@ -1,8 +1,8 @@
 class Federate < Formula
   desc "A tool for merging and deploying microservices"
   homepage "https://github.com/funkygao/federate"
-  url "https://github.com/funkygao/federate/archive/refs/tags/v2.3.1.tar.gz"
-  sha256 "d024f3c1041a684221616fe51772571510e6b586509a8725c4c3f6e6bb0cfa6b"
+  url "https://github.com/funkygao/federate/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "a951ac700c1acb5fb825678acb135c6bf645c146c51c36f67770a6fa5b0fee94"
 
   depends_on "go" => :build
 
